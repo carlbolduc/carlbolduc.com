@@ -40,6 +40,7 @@ p {
 
 ul {
     text-align: left;
+    list-style: square inside url('data:image/gif;base64,R0lGODlhBQAKAIABAAAAAP///yH5BAEAAAEALAAAAAAFAAoAAAIIjI+ZwKwPUQEAOw=='); /* https://stackoverflow.com/a/16176036 */
 }
 
 #description {
