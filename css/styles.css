@@ -1,0 +1,195 @@
+@import url('https://fonts.googleapis.com/css?family=Bitter:700|Inconsolata');
+
+/* begin style reset */
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+body {
+    line-height: 1;
+}
+ol, ul {
+    list-style: none;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+/* end style reset */
+
+body {
+    font: normal 100% sans-serif;
+    background-color: #f5efe6;
+    color: #283c46;
+}
+
+h1 {
+    font-family: 'Bitter', serif;
+    font-size: 2em;
+    font-weight: 700;
+    padding: 0.4em 0;
+}
+
+h2 {
+    font-size: 1.5em;
+    font-weight: 700;
+    padding: 0.4em 0;
+}
+
+p {
+    margin-bottom: 1em;
+    line-height: 1.5;
+}
+
+a {
+    color: #1b6ac9;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+a:visited {
+    color: #1b6ac9;
+}
+
+strong {
+    font-weight: bold;
+}
+
+header {
+    width: 100%;
+    background-color: rgba(251, 248, 245, 0.98);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+footer {
+    width: 100%;
+    background-color: rgba(251, 248, 245, 0.98);
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    text-align: center;
+    padding: 1em;
+    font-size: .8em;
+}
+
+footer p {
+    margin: 0;
+}
+
+section {
+    width: 680px;
+    margin: 0 auto;
+}
+
+article {
+    padding: 10px;
+    margin: 10px;
+    background-color: #FFF;
+    box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.1);
+    border-radius: 3px;
+}
+
+header h1 {
+    text-align: center;
+}
+
+header section {
+    width: 640px;
+    padding: 10px;
+}
+
+header #picture {
+    float: left;
+    width: 200px;
+    margin: 0 20px 0 0;
+}
+
+header #description {
+    float: right;
+    width: 400px;
+    margin: 20px 0 0 20px;
+}
+
+header section::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+#lang {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+#pitch {
+    margin: 2em;
+    font-family: 'Bitter', serif;
+    font-size: 1.3em;
+    text-align: center;
+}
+
+@media screen and (max-width: 768px) {
+    header section, section {
+        width: 100%;
+        padding: 0;
+    }
+
+    header #picture {
+        float: none;
+        width: 200px;
+        margin: 0 auto;
+    }
+
+    header #description {
+        float: none;
+        width: 92%;
+        text-align: center;
+        margin: 0;
+        padding: 4%
+    }
+
+    article {
+        margin: 10px 0;
+        border-radius: 0;
+    }
+
+    footer {
+        font-size: 0.6em;
+    }
+}
