@@ -1,0 +1,17 @@
+<header>
+    <h1><a href="/">Carl Bolduc</a></h1>
+    <nav>
+        <ul>
+            <li><a href="/blog">Blog</a></li>
+            <li><a href="/en">En</a></li>
+[% INCLUDE nav_social.tt2 | indent(12)  %]
+        </ul>
+    </nav>
+    <section>
+        <div id="picture"><img alt="Carl Bolduc" src="/img/picture_small.png"/></div>
+        <div id="description">
+            <p>Je suis <a href="#developer">développeur</a> et <a href="#sysadmin">administrateur système</a>.</p>
+            <p>Je peux me joindre à votre équipe pour donner un coup de main ou réaliser un projet dont vous avez l'idée. <a class="hire-me" href="mailto:contact@carlbolduc.com">Contactez-moi</a>!</p>
+        </div>
+    </section>
+</header>

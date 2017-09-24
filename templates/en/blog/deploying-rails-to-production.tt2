@@ -1,0 +1,13 @@
+[% title = 'Carl Bolduc - Deploying Rails to production' %]
+<!DOCTYPE html>
+<html>
+[% INCLUDE head.tt2 | indent(4)  %]
+<body>
+<section>
+    <article>
+        <h1>Deploying Rails to production</h1>
+    </article>
+</section>
+[% INCLUDE footer.tt2 %]
+</body>
+</html>

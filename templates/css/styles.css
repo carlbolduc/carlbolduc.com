@@ -124,8 +124,46 @@ article {
     border-radius: 3px;
 }
 
+nav li {
+    display: inline;
+    float: left;
+    padding: 0 .5rem 0 0;
+    line-height: 24px;
+}
+
+header nav {
+    position: absolute;
+    right: 1rem;
+    top: 1.4rem;
+    text-align: right;
+    font-size: 1.4rem;
+}
+
+.social {
+    width: 24px;
+    height: 24px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    float: left;
+}
+
+#facebook {
+    background-image: url(/img/FB-f-Logo__blue_72.png);
+}
+
+#github {
+    background-image: url(/img/GitHub-Mark-64px.png);
+}
+
+#linkedin {
+    background-image: url(/img/In-2C-66px-R.png);
+}
+
 header h1 {
-    text-align: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 1rem;
 }
 
 header section {
