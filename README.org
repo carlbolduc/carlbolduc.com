@@ -1,3 +1,0 @@
-#+TITLE: My Personal Website
-
-Just a simple web page to describe what I do professionally.
