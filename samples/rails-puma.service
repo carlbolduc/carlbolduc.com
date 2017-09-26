@@ -1,0 +1,15 @@
+[Unit]
+Description=Rails-Puma Webserver
+After=network.target
+
+[Service]
+EnvironmentFile=/etc/environment
+Type=simple
+User=ubuntu
+WorkingDirectory=/home/ubuntu/[YOUR_APPLICATION_FOLDER]
+ExecStart=/bin/bash -lc 'RAILS_ENV="production" DB_HOST=${DB_HOST} DB_DATABASE=${DB_DATABASE} DB_USERNAME=${DB_USERNAME} DB_PASSWORD=${DB_PASSWORD} bundle exec puma -b unix://./tmp/sockets/puma.sock --pidfile ./tmp/pids/puma.pid'
+TimeoutSec=15
+Restart=always
+
+[Install]
+WantedBy=multi-user.target 
