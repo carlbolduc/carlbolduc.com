@@ -1,3 +1,4 @@
-        <footer>
-            <p>Carl Bolduc, <a href="mailto:contact@carlbolduc.com">contact@carlbolduc.com</a>, 418.455.7654</p>
-        </footer>
+<footer>
+    <p>Carl Bolduc, <a href="mailto:contact@carlbolduc.com">contact@carlbolduc.com</a>, 418.455.7654</p>
+[% INCLUDE social.tt2 | indent(4)  %]
+</footer>

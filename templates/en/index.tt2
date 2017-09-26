@@ -18,13 +18,6 @@
                 <h1 id="sysadmin">System Administrator</h1>
                 <p>I take care of servers profesionnaly since 2008 and I work with the <strong>AWS</strong> cloud platform since 2015. This website is hosted on <strong>Linode</strong> on a server that I configured. I have experience with several <strong>Linux</strong> and with Microsoft <strong>Windows Server</strong>.</p>
             </article>
-            <article>
-                <h1 id="projects">Open-source projects</h1>
-                <h2>Vegan Realm</h2>
-                <p><a href="http://veganrealm.net">Vegan Realm</a> is a search engine that gathers curated online vegan resources and information links all in one convenient place. I created Vegan Realm with <a href="http://www.magalieallard.com">Magalie Allard</a> during the summer of 2017. The <a href="https://github.com/carlbolduc/veganrealm-api">backend api sources</a> and the <a href="https://github.com/carlbolduc/veganrealm-client">front-end sources</a> are available on GitHub. Everything is hosted on Linode on a server that I configured and maitain.</p>
-                <h2>carlbolduc.com</h2>
-                <p>The <a href="https://github.com/carlbolduc/carlbolduc.com">carlbolduc.com sources</a> are available on GitHub.</p>
-            </article>
         </section>
 [% INCLUDE footer.tt2 %]
     </body>

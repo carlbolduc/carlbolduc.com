@@ -1,0 +1,18 @@
+[% title = 'Carl Bolduc - Projects' %]
+<!DOCTYPE html>
+<html>
+[% INCLUDE head.tt2 | indent(4)  %]
+    <body>
+[% INCLUDE header_en.tt2 | indent(8) %]
+        <section>
+            <article>
+                <h1 id="projects">Open-source projects</h1>
+                <h2>Vegan Realm</h2>
+                <p><a href="http://veganrealm.net">Vegan Realm</a> is a search engine that gathers curated online vegan resources and information links all in one convenient place. I created Vegan Realm with <a href="http://www.magalieallard.com">Magalie Allard</a> during the summer of 2017. The <a href="https://github.com/carlbolduc/veganrealm-api">backend api sources</a> and the <a href="https://github.com/carlbolduc/veganrealm-client">front-end sources</a> are available on GitHub. Everything is hosted on Linode on a server that I configured and maitain.</p>
+                <h2>carlbolduc.com</h2>
+                <p>The <a href="https://github.com/carlbolduc/carlbolduc.com">carlbolduc.com sources</a> are available on GitHub.</p>
+            </article>
+        </section>
+[% INCLUDE footer.tt2 %]
+    </body>
+</html>

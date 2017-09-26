@@ -2,9 +2,9 @@
     <h1><a href="/">Carl Bolduc</a></h1>
     <nav>
         <ul>
-            <li><a href="/blog">Blog</a></li>
+            <!-- <li><a href="/blog">Blog</a></li> -->
+            <li><a href="/projets.html">Projets</a></li>
             <li><a href="/en">En</a></li>
-[% INCLUDE nav_social.tt2 | indent(12)  %]
         </ul>
     </nav>
     <section>

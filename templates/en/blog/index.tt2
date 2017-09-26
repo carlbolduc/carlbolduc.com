@@ -8,7 +8,6 @@
             <article>
                 <ul>
                     <li><a href="deploying-rails-to-production.html">Deploying Rails to production</a></li>
-                    <li><a href="testing-prodiction-with-vagrant.html">Testing production with vagrant</a></li>
                 </ul>
             </article>
         </section>
