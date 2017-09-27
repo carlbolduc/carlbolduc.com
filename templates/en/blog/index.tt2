@@ -4,13 +4,12 @@
 [% INCLUDE head.tt2 | indent(4)  %]
     <body>
 [% INCLUDE header_en.tt2 | indent(8) %]
-        <section>
-            <article>
-                <ul>
-                    <li><a href="deploying-rails-to-production.html">Deploying Rails to production</a></li>
-                </ul>
-            </article>
-        </section>
+        <main>
+            <h1>Blog</h1>
+            <ul>
+                <li><a href="deploying-rails-to-production.html">Deploying Rails to production</a></li>
+            </ul>
+        </main>
 [% INCLUDE footer.tt2 %]
     </body>
 </html>

@@ -4,21 +4,16 @@
 [% INCLUDE head.tt2 | indent(4)  %]
     <body>
 [% INCLUDE header_en.tt2 | indent(8) %]
-        <div id="pitch">
-            <p>Whether your needs are on the front-end or backend, I have the expertise to help you.</p>
-            <p>I can contribute at all the phases of your project, from analysis to deployment.</p>
-        </div>
-        <section>
-            <article>
-                <h1 id="developer">Developer</h1>
-                <p>I have been developing websites for more than 10 years. I took interest in <strong>HTML</strong> and <strong>CSS</strong> the moment I got my first computer. Along the projects that I delivered, I learned <strong>JavaScript</strong> to complement my front-end toolbox.</p>
-                <p>I implemented dynamic websites with server technologies such as <strong>Java</strong>, <strong>Python</strong>, <strong>PHP</strong>, and <strong>Ruby</strong>.</p>
-            </article>
-            <article>
-                <h1 id="sysadmin">System Administrator</h1>
-                <p>I take care of servers profesionnaly since 2008 and I work with the <strong>AWS</strong> cloud platform since 2015. This website is hosted on <strong>Linode</strong> on a server that I configured. I have experience with several <strong>Linux</strong> and with Microsoft <strong>Windows Server</strong>.</p>
-            </article>
-        </section>
+        <main>
+            <h1>Front-end or backend, I have the expertise to help you.</h1>
+            <div id="picture"><img alt="Carl Bolduc" src="/img/carl.jpg"/></div>
+            <p class="pitch">I can contribute at all the phases of your project, from analysis to deployment.</p>
+            <h2 id="developer">Developer</h2>
+            <p>I have been developing websites for more than 10 years. I took interest in <strong>HTML</strong> and <strong>CSS</strong> the moment I got my first computer. Along the projects that I delivered, I learned <strong>JavaScript</strong> to complement my front-end toolbox.</p>
+            <p>I implemented dynamic websites with server technologies such as <strong>Java</strong>, <strong>Python</strong>, <strong>PHP</strong>, and <strong>Ruby</strong>.</p>
+            <h2 id="sysadmin">System Administrator</h2>
+            <p>I take care of servers profesionnaly since 2008 and I work with the <strong>AWS</strong> cloud platform since 2015. This website is hosted on <strong>Linode</strong> on a server that I configured. I have experience with several <strong>Linux</strong> and with Microsoft <strong>Windows Server</strong>.</p>
+        </main>
 [% INCLUDE footer.tt2 %]
     </body>
 </html>

@@ -1,5 +1,5 @@
 <header>
-    <h1><a href="/en">Carl Bolduc</a></h1>
+    <a id="logo" href="/en">Carl Bolduc</a>
     <nav>
         <ul>
             <li><a href="/en/blog">Blog</a></li>
@@ -7,11 +7,4 @@
             <li><a href="/">Fr</a></li>
         </ul>
     </nav>
-    <section>
-        <div id="picture"><img alt="Carl Bolduc" src="/img/picture_small.png"/></div>
-        <div id="description">
-            <p>I am a <a href="#developer">Developer</a> and <a href="#sysadmin">System Administrator</a>.</p>
-            <p>I can join your team to give a hand or realise a project that you imagined. <a class="hire-me" href="mailto:contact@carlbolduc.com">Contact me</a>!</p>
-        </div>
-    </section>
 </header>

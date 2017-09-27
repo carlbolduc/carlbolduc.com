@@ -52,40 +52,59 @@ table {
 /* end style reset */
 
 body {
-    font: normal 100% sans-serif;
-    background-color: #f5efe6;
-    color: #283c46;
+    font: normal 100%  Times, "Times New Roman", serif;
+    background-color: #fff;
+    color: #3c4556;
 }
 
 h1 {
-    font-family: 'Bitter', serif;
-    font-size: 2em;
+    margin: 4rem 2rem 2rem;
+    font-size: 3em;
     font-weight: 700;
     padding: 0.4em 0;
+    text-align: center;
 }
 
 h2 {
+    font-size: 2em;
+    font-weight: 700;
+    padding: 0.4em 0;
+    text-align: center;
+    color: #3c4556;
+}
+
+h3 {
     font-size: 1.5em;
     font-weight: 700;
     padding: 0.4em 0;
+    text-align: center;
 }
 
 p {
-    margin-bottom: 1em;
+    max-width: 600px;
     line-height: 1.5;
+    letter-spacing: -0.05rem;
+    margin: 0 auto 1.2em auto;
+    font-size: 1.125em;
+}
+
+ul {
+    max-width: 600px;
+    margin: 0 auto 1em auto;
 }
 
 a {
-    color: #1b6ac9;
+    color: #72518D;
     text-decoration: none;
 }
 
 a:hover {
-    text-decoration: underline;
+    text-decoration: none;
+    border-bottom: 2px solid #fcb76b;
 }
 
 a:visited {
-    color: #1b6ac9;
+    color: #72518D;
 }
 
 strong {
@@ -101,36 +120,30 @@ code {
     font-family: monospace;
 }
 
+main {
+    max-width: 850px;
+    margin: 0 auto;
+}
+
 header {
+    position: fixed;
+    top: 0;
+    z-index: 1000;
     width: 100%;
-    background-color: rgba(251, 248, 245, 0.98);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    height: 4em;
+    background-color: rgba(255, 255, 255, 0.95);
+    /*border-bottom: 1px solid rgba(0, 0, 0, 0.1);*/
 }
 
 footer {
     width: 100%;
-    background-color: rgba(251, 248, 245, 0.98);
-    border-top: 1px solid rgba(0, 0, 0, 0.1);
     text-align: center;
     padding: 1em 0;
     font-size: .8em;
 }
 
 footer p {
-    margin: 0;
-}
-
-section {
-    width: 680px;
-    margin: 0 auto;
-}
-
-article {
-    padding: 10px;
-    margin: 10px;
-    background-color: #FFF;
-    box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.1);
-    border-radius: 3px;
+    text-align: center;
 }
 
 nav li {
@@ -140,13 +153,48 @@ nav li {
     line-height: 24px;
 }
 
+#logo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 1rem;
+    font-family: 'Bitter', serif;
+    font-size: 2em;
+}
+
+#logo:hover {
+    text-decoration: none;
+    border: none;
+    transform: scale(1.08, 1.08);
+}
+
 header nav {
     position: absolute;
     right: 1rem;
-    top: 1.4rem;
+    top: 2rem;
     text-align: right;
     font-size: 1.4rem;
-    font-family: 'Bitter', serif;
+    font-family: "Helvetica", "Lucida Grande", sans-serif;
+    font-weight: bold;
+}
+
+#picture {
+    text-align: center;
+}
+
+.pitch {
+    width: 100%;
+    font-size: 2.1em;
+    text-align: center;
+    color: #3c4556;
+    margin-top: 1em;
+    font-weight: bold;
+}
+
+.longform h2, .longform h3 {
+    text-align: left;
+    max-width: 600px;
+    margin: 0 auto;
 }
 
 #social-links {
@@ -180,48 +228,8 @@ header nav {
     background-image: url(/img/In-2C-66px-R.png);
 }
 
-header h1 {
-    position: absolute;
-    top: 0;
-    left: 0;
-    padding: 1rem;
-}
 
-header section {
-    width: 640px;
-    padding: 10px;
-}
 
-header #picture {
-    float: left;
-    width: 200px;
-    margin: 0 20px 0 0;
-}
-
-header #description {
-    float: right;
-    width: 400px;
-    margin: 20px 0 0 20px;
-}
-
-header section::after {
-    content: "";
-    display: block;
-    clear: both;
-}
-
-#lang {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-}
-
-#pitch {
-    margin: 2em;
-    font-family: 'Bitter', serif;
-    font-size: 1.3em;
-    text-align: center;
-}
 
 @media screen and (max-width: 768px) {
     header section, section {
