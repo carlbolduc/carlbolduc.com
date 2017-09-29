@@ -160,6 +160,10 @@ footer p {
     padding-right: .5rem;
 }
 
+a.emoji:hover {
+    text-decoration: none;
+}
+
 nav li {
     display: inline;
     float: left;

@@ -1,4 +1,8 @@
 <footer>
 [% INCLUDE social.tt2 | indent(4)  %]
     <p>Carl Bolduc, <a href="mailto:contact@carlbolduc.com">contact@carlbolduc.com</a>, 418.455.7654</p>
+    <p>
+        <a class="emoji" href="#" onclick="setActiveStyleSheet('default'); return false;">&#128161;</a>
+        <a class="emoji" href="#" onclick="setActiveStyleSheet('dark'); return false;">&#127771;</a>
+    </p>
 </footer>
