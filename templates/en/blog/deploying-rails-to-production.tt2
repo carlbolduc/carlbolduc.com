@@ -5,7 +5,7 @@
     <body>
 [% INCLUDE header_en.tt2 | indent(8) %]
         <main class="longform">
-            <h1>Deploying Rails to production</h1>
+            <h1 id="page-title">Deploying Rails to production</h1>
             <p>I recently launched <a href="https://quinielanacimiento.com.mx">Quiniela de Nacimiento</a> for one of my clients. It was the first Rails application that I was putting in production. Here, you will find all the technical details of how to deploy and run a Rails application on a Linux server. Most of the tutorials I could find online were focussing on deploying to (<a href="https://www.heroku.com">Heroku</a> or using automation tool such as <a href="http://capistranorb.com">Capistrano</a>. My approach is different as I installed the various pieces by hand. Some of the steps are specific to AWS since the server is an EC2 instance and the database is hosted in RDS.</p>
 
             <h2>Create your production database</h2>
@@ -36,9 +36,10 @@
                 <li>serve static content with nginx</li>
             </ul>
             <p><code>
-            sudo apt-get install build-essential nginx zlib1g-dev libssl-dev \<br>
-                libreadline-dev libyaml-dev libsqlite3-dev sqlite3 libxml2-dev \<br>
-                libxslt1-dev libcurl4-openssl-dev libffi-dev nodejs libpq-dev
+            sudo apt-get install build-essential nginx zlib1g-dev \<br>
+                libssl-dev libreadline-dev libyaml-dev libsqlite3-dev \<br>
+                sqlite3 libxml2-dev libxslt1-dev libcurl4-openssl-dev \<br>
+                libffi-dev nodejs libpq-dev
             </code></p>
             <h2>Install Ruby</h2>
             <p>Get the latest Ruby sources, built Ruby and install it:</p>

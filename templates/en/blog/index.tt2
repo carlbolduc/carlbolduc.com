@@ -5,10 +5,10 @@
     <body>
 [% INCLUDE header_en.tt2 | indent(8) %]
         <main>
-            <h1>Blog</h1>
-            <ul>
-                <li><a href="deploying-rails-to-production.html">Deploying Rails to production</a></li>
-            </ul>
+            <h1 id="page-title">Blog</h1>
+            <p id="blog-list">
+                <a href="deploying-rails-to-production.html">Deploying Rails to production</a>
+            </p>
         </main>
 [% INCLUDE footer.tt2 %]
     </body>

@@ -5,10 +5,10 @@
     <body>
 [% INCLUDE header.tt2 | indent(8) %]
         <main>
-            <h1 id="projects">Projets open source</h1>
-            <h2>Vegan Realm</h2>
+            <h1 id="page-title">Projets open source</h1>
+            <h1>Vegan Realm</h1>
             <p><a href="http://veganrealm.net">Vegan Realm</a> est un moteur de recherche open source regroupant de l'information sur le mode de vie végane. J'ai créé Vegan Realm avec <a href="http://www.magalieallard.com">Magalie Allard</a> à l'été 2017. Les <a href="https://github.com/carlbolduc/veganrealm-api">sources  du serveur</a> et <a href="https://github.com/carlbolduc/veganrealm-client">celles du client</a> sont disponbles chez GitHub. Le tout est hébergé chez Linode sur un serveur que j'ai déployé et que je maintiens.</p>
-            <h2>carlbolduc.com</h2>
+            <h1>carlbolduc.com</h1>
             <p>Les <a href="https://github.com/carlbolduc/carlbolduc.com">sources de carlbolduc.com</a> sont disponibles chez GitHub.</p>
         </main>
 [% INCLUDE footer.tt2 %]

@@ -1,10 +1,10 @@
 <header>
-    <a id="logo" href="/">Carl Bolduc</a>
+    <a id="logo" href="/index.html"></a>
     <nav>
         <ul>
             <!-- <li><a href="/blog">Blog</a></li> -->
-            <li><a href="/projets.html">Projets</a></li>
-            <li><a href="/en">En</a></li>
+            <li class="tiny-right-padding"><a href="/projets.html">Projets</a></li>
+            <li><a href="/en/index.html">En</a></li>
         </ul>
     </nav>
 </header>

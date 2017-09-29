@@ -5,13 +5,13 @@
     <body>
 [% INCLUDE header.tt2 | indent(8) %]
         <main>
-            <h1>Front-end ou backend, j'ai l'expertise pour vous aider.</h1>
-            <div id="picture"><img alt="Carl Bolduc" src="/img/carl.jpg"/></div>
-            <p class="pitch">Je peux contribuer à toutes les étapes de la réalisation d'un projet, de l'analyse au déploiement.</p>
-            <h2 id="developer">Développeur</h2>
+            <h1 id="page-title">Front-end ou Backend,<br>
+                je peux vous aider.</h1>
+            <p>Mon nom est <strong>Carl Bolduc</strong>. De l'analyse au déploiement, j'ai l'expertise nécessaire pour contribuer à la réalisation de votre projet.</p>
+            <h1>Développeur</h1>
             <p>Je développe des sites web depuis plus de 10 ans. Je me suis intéressé au <strong>HTML</strong> et au <strong>CSS</strong> dès que j'ai obtenu mon premier ordinateur personnel. Au fil des projets que j'ai réalisés, j'ai apprivoisé <strong>JavaScript</strong> pour compléter ma boîte à outils front-end.</p>
             <p>J'ai réalisé des sites dynamiques avec des technologies serveurs en <strong>Java</strong>, <strong>Python</strong>, <strong>PHP</strong> et <strong>Ruby</strong>.</p>
-            <h2 id="sysadmin">Administrateur système</h2>
+            <h1>Administrateur système</h1>
             <p>J'administre professionnellement des serveus depuis 2008 et je travaille avec le cloud d'Amazon (<strong>AWS</strong>) depuis 2015. Ce site web est hébergé chez <strong>Linode</strong> sur un serveur que je maintiens. J'ai de l'expérience avec plusieurs distributions <strong>Linux</strong> ainsi qu'avec Microsoft <strong>Windows Server</strong>.</p>
         </main>
 [% INCLUDE footer.tt2 %]
