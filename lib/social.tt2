@@ -1,5 +1,4 @@
 <div id="social-links">
     <a id="linkedin" class="social" href="https://www.linkedin.com/in/carl-bolduc" style="margin-right:10px"></a>
-    <a id="facebook" class="social" href="https://www.facebook.com/carlbolduc.dev/" style="margin-right:10px"></a>
     <a id="github" class="social" href="https://github.com/carlbolduc"></a>
 </div>

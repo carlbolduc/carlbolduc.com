@@ -5,34 +5,32 @@
     <body>
 [% INCLUDE header_en.tt2 | indent(8) %]
         <main class="longform">
-            <h1 id="page-title">Deploying Rails to production</h1>
-            <p>I recently launched <a href="https://quinielanacimiento.com.mx">Quiniela de Nacimiento</a> for one of my clients. It was the first Rails application that I was putting in production. Here, you will find all the technical details of how to deploy and run a Rails application on a Linux server. Most of the tutorials I could find online were focussing on deploying to (<a href="https://www.heroku.com">Heroku</a> or using automation tool such as <a href="http://capistranorb.com">Capistrano</a>. My approach is different as I installed the various pieces by hand. Some of the steps are specific to AWS since the server is an EC2 instance and the database is hosted in RDS.</p>
+            <h1 id="page-title">Deploying Rails to Production</h1>
+            <p class="timestamp"></p>
+            <p>I recently launched <a href="https://quinielanacimiento.com.mx">Quiniela de Nacimiento</a> with my client <a href="https://www.mexicosimcard.com">MEXICO SIM CARD</a>. It was my first production deployment of a Rails application. When I researched and planned the deployment, most of the tutorials I could find were about deploying to <a href="https://www.heroku.com">Heroku</a> or using automation tool such as <a href="http://capistranorb.com">Capistrano</a>. My objective was to get the application up and running on a server hosted in <a href="https://aws.amazon.com/ec2/">Amazon EC2</a>. I also did not want to rely on automation deployment at this time. I took notes along the way and summarized the technical steps I took bellow.
 
-            <h2>Create your production database</h2>
-            <p>Create a PostgreSQL instance in RDS. The instructions are detailed <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_GettingStarted.CreatingConnecting.PostgreSQL.html">here</a>.</p>
+            <h2>The Production Database</h2>
+            <p>I relied on <a href="https://sqlite.org">SQLite</a> during development but wanted something more robust for production. I chose <a href="https://www.postgresql.org">PostgreSQL</a> and decided to use the <a href="https://aws.amazon.com/rds/">Amazon RDS</a> to host the database. I followed the instructions detailed <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_GettingStarted.CreatingConnecting.PostgreSQL.html">here</a> to create the database.</p>
 
-            <h2>Booting your new server</h2>
-            <p>Create an EC2 instance in AWS based on the Ubuntu Server 16.04 LTS AMI. LTS releases are supported for five years by Canonical and Ubuntu Server is widely used. In my experience, it’s easier to find answers on the web when faced with a problem than if you’re using another Linux distribution.</p>
+            <h2>The Application Server</h2>
+            <p>When creating a server in EC2, there are several Linux image choices. I opted for Ubuntu Server 16.04 LTS AMI. LTS releases are supported for five years by Canonical and Ubuntu Server is widely used. In my experience, it's easier to find answers on the web when facing a problem with Ubuntu than if you are using another Linux distribution. This <a href="https://aws.amazon.com/ec2/getting-started/">guide</a> list all the steps required to boot a new server in EC2.</p>
 
-            <h2>Prepare your new server</h2>
+            <h3>Environment Variables</h3>
+            <p>To avoid putting sensitive information directly in the source code, I opted for using environment variables which are supported by Rails out of the box. To do so, I edited <code>/etc/environment</code> on my new Ubuntu server to include the credentials and other sensitive information used by the application.</p>
 
-            <h3>Environment variables</h3>
-            <p>Edit <code>/etc/environment</code> to include the credentials and other sensitive data that are used by your rails application.</p>
-
-            <h3>Software prerequesite</h3>
-            <p>Update the package repositories:</p>
+            <h3>Software Requirements</h3>
+            <p>Before installing anything new, I made sure that my server was up to date by updating the package repositories and upgrading the installed software to the latest version:</p>
             <p><code>
             sudo apt-get update
             </code></p>
-            <p>Upgrade your server to the latest packages available:</p>
             <p><code>
             sudo apt-get upgrade
             </code></p>
-            <p>Install the packages required to:</p>
+            <p>I then proceeded to install the required packages to:</p>
             <ul>
                 <li>build ruby</li>
                 <li>connect to SQLite (optional) and PostgreSQL</li>
-                <li>render JavaScript server-side (nodejs) with Rails</li>
+                <li>compile JavaScript code for the Rails asset pipeline (Node.js)</li>
                 <li>serve static content with nginx</li>
             </ul>
             <p><code>
@@ -41,8 +39,8 @@
                 sqlite3 libxml2-dev libxslt1-dev libcurl4-openssl-dev \<br>
                 libffi-dev nodejs libpq-dev
             </code></p>
-            <h2>Install Ruby</h2>
-            <p>Get the latest Ruby sources, built Ruby and install it:</p>
+            <h3>Install Ruby</h3>
+            <p>To build and install Ruby 2.4.1 on the Ubuntu server, I executed the following commands:</p>
             <p><code>
             wget http://ftp.ruby-lang.org/pub/ruby/2.4/ruby-2.4.1.tar.gz<br>
             tar xf ruby-2.4.1.tar.gz<br>
@@ -51,37 +49,38 @@
             make<br>
             sudo make install
             </code></p>
-            <p>At this point, <code>ruby -v</code> output should reflect the version you just installed.</p>
+            <p>At this point, <code>ruby -v</code> was outputting the correct Ruby version (2.4.1).</p>
 
-            <h2>Install Rails</h2>
-            <p>Install the Rails version required by your application:</p>
+            <h3>Install Rails</h3>
+            <p>The project was developed using Rails 5.0.1. With Ruby now installed, I executed the following command to install Rails as well:</p>
             <p><code>
             sudo gem install rails -v 5.0.1
             </code></p>
-            <p>At this point, <code>rails -v</code> output should reflect the version you just installed.</p>
+            <p>At this point, <code>rails -v</code> was outputting the correct Rails version (5.0.1).</p>
 
-            <h2>Prepare your Rails application</h2>
-            <p>Get the sources of your Rails application on your server. From your application folder:</p>
+            <h3>Deploy Application Code</h3>
+            <p>With the software requirements in place, I was ready to install the application code on the server. I cloned the repository and proceeded to:</p>
             <ul>
                 <li>install required gems</li>
                 <li>prepare the production database</li>
                 <li>prepare static assets</li>
             </ul>
+            <p>To achieve this, I ran the following commands from the folder hosting the Rails application files:</p>
             <p><code>
             bundle install<br>
             RAILS_ENV="production" bin/rails db:setup<br>
             RAILS_ENV=production bin/rails assets:precompile
             </code></p>
-            <p>Setup the secret key by entering the following command and copying the result inside /etc/profile:</p>
+            <p>Since this is production, I also configured the application secret key by entering the following command and copying the result inside /etc/profile:</p>
             <p><code>
             RAILS_ENV=production rails secret
             </code></p>
-            <p>Still in your application folder, create two folders that will be used by the puma server:</p>
+            <p>Still in your application folder, I also created two folders that will be used by the <a href="http://puma.io">Puma</a> server which will execute the Ruby code:</p>
             <p><code>
             mkdir tmp/sockets tmp/pids
             </code></p>
-
-            <h2>Add a systemd service to run puma</h2>
+<hr>
+            <h3>Puma Service</h3>
             <p>Create a file named <code>rails-puma.service</code> inside <code>/lib/systemd/system/</code> with content similar to <a href="https://github.com/carlbolduc/carlbolduc.com/blob/master/samples/rails-puma.service">this</a>.</p>
             <p>Enable and start your new service:</p>
             <p><code>
@@ -90,13 +89,14 @@
             </code></p>
 
 
-            <h2>Configure the nginx website</h2>
+            <h3>Configure the nginx website</h3>
             <p>A site configuration similar to this will allow you to serve static assets through nginx while proxying application requests to puma. <a href="https://github.com/carlbolduc/carlbolduc.com/blob/master/samples/nginx.conf">This configuration</a> is for an https website which was configured through <a href="https://certbot.eff.org/#ubuntuxenial-nginx">certbot</a>.
             <p>Restart the nginx service:</p>
             <p><code>
             sudo systemctl restart nginx
             </code></p>
             <p>At this point, you are done and you should have your Rails application available at your domain name in https.</p>
+            <p>Also published on <a href="#">Medium</a></p>
         </main>
 [% INCLUDE footer.tt2 %]
     </body>
