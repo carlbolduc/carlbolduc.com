@@ -75,28 +75,30 @@
             <p><code>
             RAILS_ENV=production rails secret
             </code></p>
-            <p>Still in your application folder, I also created two folders that will be used by the <a href="http://puma.io">Puma</a> server which will execute the Ruby code:</p>
+            <p>Still in the application folder, I created two new folders that will be used by the <a href="http://puma.io">Puma</a> server which will execute the Ruby code:</p>
             <p><code>
             mkdir tmp/sockets tmp/pids
             </code></p>
-<hr>
+
             <h3>Puma Service</h3>
-            <p>Create a file named <code>rails-puma.service</code> inside <code>/lib/systemd/system/</code> with content similar to <a href="https://github.com/carlbolduc/carlbolduc.com/blob/master/samples/rails-puma.service">this</a>.</p>
-            <p>Enable and start your new service:</p>
+            <p>Ubuntu now uses <a href="https://freedesktop.org/wiki/Software/systemd/">systemd</a> as its service manager. To interract with Puma and to start it at boot, I created a new systemd service. To achieve this, created a file named <code>rails-puma.service</code> inside <code>/lib/systemd/system/</code> with content similar to <a href="https://github.com/carlbolduc/carlbolduc.com/blob/master/samples/rails-puma.service">this</a>. As you can see, the Puma service uses environment variables to pass sensitive information to the application.</p>
+            <p>To enable and start this new service, I used this two commands:</p>
             <p><code>
             sudo systemctl enable rails-puma<br>
             sudo systemctl start rails-puma
             </code></p>
 
-
-            <h3>Configure the nginx website</h3>
-            <p>A site configuration similar to this will allow you to serve static assets through nginx while proxying application requests to puma. <a href="https://github.com/carlbolduc/carlbolduc.com/blob/master/samples/nginx.conf">This configuration</a> is for an https website which was configured through <a href="https://certbot.eff.org/#ubuntuxenial-nginx">certbot</a>.
-            <p>Restart the nginx service:</p>
+            <h3>Static Resources</h3>
+            <p>When running in production, Puma is not serving the static content. I selected <a href="https://www.nginx.com">NGINX</a> for this task. A site configuration similar to <a href="https://github.com/carlbolduc/carlbolduc.com/blob/master/samples/nginx.conf">this</a> allows to serve static assets through NGINX while proxying application requests to Puma. The details regarding the https settings were configured through <a href="https://certbot.eff.org/#ubuntuxenial-nginx">Certbot</a>. With this new site configuration in place, the last step was to restart the NGINX service:</p>
             <p><code>
             sudo systemctl restart nginx
             </code></p>
-            <p>At this point, you are done and you should have your Rails application available at your domain name in https.</p>
-            <p>Also published on <a href="#">Medium</a></p>
+            <p>At this point, the website became available when reaching <a href="https://quinielanacimiento.com.mx">Quiniela de Nacimiento</a>.</p>
+
+            <h2>Conclusion</h2>
+            <p>I plan to automate some of these steps or maybe investigate Capistrano for my next deployment. However, I feel that my decision to go fully manual for this deployment gave me a better understanding of how a Rails application work outside of my development environment.</p>
+            <hr>
+            <p class="medium">Also published on <a href="#">Medium</a></p>
         </main>
 [% INCLUDE footer.tt2 %]
     </body>

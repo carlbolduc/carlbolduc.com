@@ -86,6 +86,25 @@ h3 {
     text-align: center;
 }
 
+hr {
+    margin: 2rem 0;
+    border: 0;
+    height: 1px;
+    background-image: -webkit-linear-gradient(left, #f8f8f2, #ff5555, #f8f8f2);
+    text-align: center;
+}
+
+hr:after {
+    content: '\2665';
+    display: inline-block;
+    position: relative;
+    top: -15px;
+    padding: 0 10px;
+    background: #f8f8f2;
+    color: #ff5555;
+    font-size: 18px;
+}
+
 p {
     max-width: 600px;
     line-height: 1.6875rem;
@@ -93,6 +112,11 @@ p {
     font-size: 1.25rem;
     font-family: "adobe-garamond-pro", "Georgia", serif;
     font-weight: 400;
+}
+
+p.medium {
+    font-size: 0.8rem;
+    font-style: italic;
 }
 
 ul {
@@ -232,10 +256,6 @@ nav ul {
     background-size: cover;
     background-repeat: no-repeat;
     float: left;
-}
-
-#facebook {
-    background-image: url(/img/FB-f-Logo__blue_72.png);
 }
 
 #github {
