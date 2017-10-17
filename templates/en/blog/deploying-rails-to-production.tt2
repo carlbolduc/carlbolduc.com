@@ -6,7 +6,7 @@
 [% INCLUDE header_en.tt2 | indent(8) %]
         <main class="longform">
             <h1 id="page-title">Deploying Rails to Production</h1>
-            <p class="timestamp">Oct 16, 2017</p>
+            <p class="timestamp">Oct 17, 2017</p>
             <p>I recently launched <a href="https://quinielanacimiento.com.mx">Quiniela de Nacimiento</a> with my client <a href="https://www.mexicosimcard.com">MEXICO SIM CARD</a>. It was my first production deployment of a Rails application. When I researched and planned the deployment, most of the tutorials I could find were about deploying to <a href="https://www.heroku.com">Heroku</a> or using automation tool such as <a href="http://capistranorb.com">Capistrano</a>. My objective was to get the application up and running on a server hosted in <a href="https://aws.amazon.com/ec2/">Amazon EC2</a>. I also did not want to rely on automation deployment at this time. I took notes along the way and summarized the technical steps I took bellow.
 
             <h2>The Production Database</h2>
