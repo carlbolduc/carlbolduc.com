@@ -115,8 +115,7 @@ p {
 }
 
 p.medium {
-    font-size: 0.8rem;
-    font-style: italic;
+    font-size: 0.85rem;
 }
 
 ul {
@@ -256,6 +255,13 @@ nav ul {
     background-size: cover;
     background-repeat: no-repeat;
     float: left;
+}
+
+.timestamp {
+    text-align: center;
+    font-size: .85rem;
+    font-weight: 700;
+    filter: brightness(250%);
 }
 
 #github {
