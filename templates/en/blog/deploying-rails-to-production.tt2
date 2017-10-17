@@ -98,7 +98,7 @@
             <h2>Conclusion</h2>
             <p>I plan to automate some of these steps or maybe investigate Capistrano for my next deployment. However, I feel that my decision to go fully manual for this deployment gave me a better understanding of how a Rails application work outside of my development environment.</p>
             <hr>
-            <p class="medium">Also published on <a href="#">Medium</a></p>
+            <p class="medium">Also published on <a href="https://medium.com/@carlbolduc/deploying-rails-to-production-97b1cf6821d7">Medium</a></p>
         </main>
 [% INCLUDE footer.tt2 %]
     </body>
