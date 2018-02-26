@@ -1,0 +1,75 @@
+[% title = 'Carl Bolduc - JavaScript Facet Filtering' %]
+<!DOCTYPE html>
+<html>
+[% INCLUDE head.tt2 | indent(4)  %]
+    <body>
+[% INCLUDE header_en.tt2 | indent(8) %]
+        <main class="longform">
+            <h1 id="page-title">JavaScript Facet Filtering</h1>
+            <p class="timestamp">Feb 26, 2018</p>
+            <p>I'm currently working on adding faceted search to <a href="http://veganrealm.net">Vegan Realm</a>. I struggled a bit while trying to find an elegant solution in plain JavaScript. I figured that sharing my concept might come in handy for someone trying to achieve a similar result. The complete code of the demo is available <a href="https://github.com/carlbolduc/facet-filtering-ui-demo">here</a>.</p>
+            <p><a href="http://requirejs.org">RequireJS</a> and its <a href="http://requirejs.org/docs/download.html#domReady">domReady</a> module were used to organize code. No other JavaScript libraries were used. Everything could be refactored into a single file if you're not interested in using modules.</p>
+            <p>To demo the feature, I created a bunch of fictional books authored by my cats and me. In a real application, these books would be served by an API. The data and its filtering were isolated inside a service module that could be swapped for something else entirely if you need to query an external api.</p>
+            <h2>The <code>FACET_MAPPINGS</code> global</h2>
+            <p><code>
+                var FACET_MAPPINGS = {<br>
+                &nbsp;&nbsp;"author": {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;"facet_title": "Authors",<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;"selected_class": "author_selected"<br>
+                &nbsp;&nbsp;},<br>
+                &nbsp;&nbsp;"year": {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;"facet_title": "Years",<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;"selected_class": "year_selected"<br>
+                &nbsp;&nbsp;}<br>
+                };
+            </code></p>
+            <p>The application assumes that you have knowledge of the possible facet filters available to you in the documents. This knowledge is reflected in <code>FACET_MAPPINGS</code> where you assign a title for your facet (<code>facet_title</code>) and a CSS class for the selected state of your facet (<code>selected_class</code>). This mapping is used for two things:</p>
+            <ul>
+                <li>Create the HTML of your facet.</li>
+                <li>Identify how to filter data based on the presence or absence of the <code>selected_class</code>.</li>
+            </ul>
+            <p>Adding and removing facets from the UI is done through <code>FACET_MAPPINGS</code>. For example, you could add a new "title" facet to this project just by editing <code>FACET_MAPPINGS</code>.<sup><a id="fnr1" href="#fn1">1</a></sup></p>
+            <h2>The flow of the app</h2>
+            <p>When you load the site, <code>loadResults</code> creates the HTML of the result list. Then, to create the HTML of the facets section, <code>createFacet</code> is called for each of the facets defined in your mapping.</p>
+            <p>The interesting stuff happens in <code>handleFacetClicks</code>:</p>
+            <ul>
+                <li>The style of the clicked facet is toggled.</li>
+                <li>If the click action was performed on an unselected facet, the facet data is added to an array of selected facets:
+                    <p><code>
+                        var targetId = event.target.id.split("_")[0];<br>
+                        if (event.target.className.indexOf(FACET_MAPPINGS[targetId].selected_class) === -1) {<br>
+                        &nbsp;&nbsp;resetClassOnFacetValues(facet);<br>
+                        &nbsp;&nbsp;event.target.className += " " + FACET_MAPPINGS[facet].selected_class;<br>
+                        &nbsp;&nbsp;selectedFacets.push({"facet": facet, "facetValue": event.target.innerText});<br>
+                        } else {<br>
+                        &nbsp;&nbsp;event.target.className = facet;<br>
+                        }
+                    </code></p>
+                </li>
+
+                <li>A loop goes through <code>FACET_MAPPINGS</code> and search for currently selected facets (other than the one which was just clicked). Identified facets are added to the array of selected facets:
+                    <p><code>
+                        for (var key in FACET_MAPPINGS) {<br>
+                        &nbsp;&nbsp;if (FACET_MAPPINGS.hasOwnProperty(key) && key !== facet) {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;var selectedFacet = document.getElementsByClassName(FACET_MAPPINGS[key].selected_class);<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;if (selectedFacet.length > 0) {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;selectedFacets.push({"facet": key, "facetValue": selectedFacet[0].innerText});<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                        &nbsp;&nbsp;}<br>
+                        }
+                    </code></p></li>
+                <li><code>filterResults</code> is called with the array of selected facets and the result is passed to <code>loadResults</code> to re-render the result list.</li>
+            </ul>
+            <h2>Things to consider</h2>
+            <p>All the facet values are shown, whether the result list contains results for a specific value of not. This is because the facet values are built once based on all the results when you load the page. It wouldn't be complex to re-render the facets when the results are filtered though.</p>
+            <p>The facets are very simple. Selecting an author will unselect other authors for example. A facet will work correctly if there is only one value per field in your documents.</p>
+            <p>And that's one simple way to create a facet UI in plain JavaScript.</p>
+            <hr>
+            <ol>
+                <li id="fn1">Adding the "title" facet would not make much sense however.&nbsp;<a href="#fnr1" class="footnoteBackLink" title="Jump back to footnote 1 in the text.">↩︎</a></li>
+            </ol>
+            <p class="medium">Also published on <a href="https://medium.com/@carlbolduc/javascript-facet-filtering-84a42e6527a">Medium</a></p>
+        </main>
+[% INCLUDE footer.tt2 %]
+    </body>
+</html>

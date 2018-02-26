@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css?family=Inconsolata');
+@import "reset.css";
+@import "base.css";
+
+body {
+    background-color: #f8f8f2;
+    color: #282a36;
+}
+
+hr {
+    background-image: -webkit-linear-gradient(left, #f8f8f2, #ff5555, #f8f8f2);
+}
+
+hr:after {
+    background: #f8f8f2;
+    color: #ff5555;
+}
+
+a {
+    color: #ff5555;
+}
+
+a:hover {
+    color: #6272a4 !important;
+}
+
+a:visited {
+    color: #ff5555;
+}
+
+header {
+    background-color: rgba(248, 248, 242, 0.95);
+}

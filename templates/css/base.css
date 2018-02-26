@@ -1,60 +1,5 @@
-@import url('https://fonts.googleapis.com/css?family=Inconsolata');
-
-/* begin style reset */
-/* http://meyerweb.com/eric/tools/css/reset/
-   v2.0 | 20110126
-   License: none (public domain)
-*/
-
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed,
-figure, figcaption, footer, header, hgroup,
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    font-size: 100%;
-    font: inherit;
-    vertical-align: baseline;
-}
-/* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure,
-footer, header, hgroup, menu, nav, section {
-    display: block;
-}
-body {
-    line-height: 1;
-}
-ol, ul {
-    list-style: none;
-}
-blockquote, q {
-    quotes: none;
-}
-blockquote:before, blockquote:after,
-q:before, q:after {
-    content: '';
-    content: none;
-}
-table {
-    border-collapse: collapse;
-    border-spacing: 0;
-}
-/* end style reset */
-
 body {
     font: normal 100% "dejarip", "Futura", "Verdana", sans-serif;
-    background-color: #282a36;
-    color: #f8f8f2;
 }
 
 h1 {
@@ -90,7 +35,6 @@ hr {
     margin: 2rem 0;
     border: 0;
     height: 1px;
-    background-image: -webkit-linear-gradient(left, #282a36, #bd93f9, #282a36);
     text-align: center;
 }
 
@@ -100,8 +44,8 @@ hr:after {
     position: relative;
     top: -15px;
     padding: 0 10px;
-    background: #282a36;
-    color: #bd93f9;
+    background: #f8f8f2;
+    color: #ff5555;
     font-size: 18px;
 }
 
@@ -114,11 +58,17 @@ p {
     font-weight: 400;
 }
 
+sup {
+    font-size: .8em;
+    vertical-align: super;
+}
+
 p.medium {
     font-size: 0.85rem;
 }
 
 ul {
+    font-size: 1.25rem;
     max-width: 600px;
     margin: 0 auto 1em auto;
     list-style: square;
@@ -126,19 +76,23 @@ ul {
     font-family: "adobe-garamond-pro", "Georgia", serif;
 }
 
+ol {
+    font-size: 1.25rem;
+    max-width: 600px;
+    margin: 0 auto 1rem auto;
+    list-style: decimal;
+    font-size: 0.85rem;
+    font-family: "adobe-garamond-pro", "Georgia", serif;
+}
+
 a {
-    color: #bd93f9;
     text-decoration: none;
 }
 
 a:hover {
-    color: #ffb86c !important;
     text-decoration: underline;
 }
 
-a:visited {
-    color: #bd93f9;
-}
 
 strong {
     font-weight: 700;
@@ -164,7 +118,8 @@ header {
     z-index: 1000;
     width: 100%;
     height: 4.7em;
-    background-color: rgba(40, 42, 54, 0.95);
+    background-color: rgba(248, 248, 242, 0.95);
+    /*background-color: rgba(40, 42, 54, 0.95);*/
 }
 
 footer {
@@ -260,11 +215,11 @@ nav ul {
     text-align: center;
     font-size: .85rem;
     font-weight: 700;
-    filter: brightness(75%);
+    filter: brightness(250%);
 }
 
 #github {
-    background-image: url(/img/GitHub-Mark-Light-64px.png);
+    background-image: url(/img/GitHub-Mark-64px.png);
 }
 
 #linkedin {
@@ -281,7 +236,7 @@ nav ul {
     h3 {
         font-size: 1.1rem;
     }
-    p, h2, h3 {
+    p, h2, h3, ol {
         padding: .4rem 1rem 0;
     }
 }
